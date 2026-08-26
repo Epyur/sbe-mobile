@@ -1,0 +1,9 @@
+{
+  "id": "sbe-mobile",
+  "name": "ЦУП Мобайл",
+  "version": "0.1.0",
+  "minAppVersion": "1.11.4",
+  "description": "Мобильный центр управления плагинами СБЕ: вход, новости, сервисы (планшеты испытателей).",
+  "author": "Полищук Евгений (polishchuk@tn.ru)",
+  "isDesktopOnly": false
+}
