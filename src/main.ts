@@ -178,7 +178,8 @@ export default class SbeMobilePlugin extends Plugin {
     const { workspace } = this.app;
     let leaf = workspace.getLeavesOfType(MOBILE_VIEW_TYPE).first();
     if (!leaf) {
-      leaf = workspace.getRightLeaf(false) ?? undefined;
+      // На мобиле правого сайдбара может не быть — открываем обычной вкладкой.
+      leaf = workspace.getRightLeaf(false) ?? workspace.getLeaf('tab');
       if (leaf) {
         await leaf.setViewState({ type: MOBILE_VIEW_TYPE, active: true });
       }
