@@ -6,6 +6,13 @@
 (контакты/документы/ЛИМС) берут авторизацию существующим кодом
 `getService('sbe-apstore').auth.getToken(...)`.
 
+**Расположение (правило 2026-08-26)**: исходники + git-репо живут в
+`C:\Obsidian\mailers\mobile\sbe-mobile\` (папка `mobile/` в корне вольта — дом
+всех мобильных плагинов; каждый — отдельный репозиторий). Собранные
+`manifest.json`/`main.js`/`styles.css` копируются в `.obsidian/plugins/sbe-mobile/`
+(live-установка Obsidian, без git и без исходников). Путь к sbe-core — относительный
+`../../../.obsidian/plugins/sbe-core/src/...` (из-за глубины `mobile/`).
+
 ## Структура
 
 - `src/main.ts` — `SbeMobilePlugin`: настройки, auth/manager, регистрация вьюхи и команды,
@@ -47,6 +54,9 @@
 - `installer.ts`: добавлена опция `skipReload` (самообновление установщика).
 - Реестр: запись `sbe-mobile` + SHA-256 хеши в `registry.json`; `community-plugins.json`
   дополнен. Репозиторий `Epyur/sbe-mobile` (public), init-коммит, пуш на main.
+- **Перенос в `mobile/`**: по решению пользователя исходники+репо переехали в
+  `C:\Obsidian\mailers\mobile\sbe-mobile\` (пути к sbe-core обновлены), собранные
+  артефакты копируются в `.obsidian/plugins/sbe-mobile/` (live).
 - `npx tsc --noEmit` EXIT=0; `npm run build` OK.
 - ⚠️ E2E на Android-планшете (механика установки/самообновления) — за пользователем.
 

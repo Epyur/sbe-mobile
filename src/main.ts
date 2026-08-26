@@ -227,17 +227,22 @@ export default class SbeMobilePlugin extends Plugin {
     }
   }
 
-  /** Публикует в «Новости» сообщение о своём обновлении — один раз на версию (правило 2026-08-22). */
+  /** Публикует в «Новости» сообщение о своём обновлении — один раз на версию (правило 2026-08-22).
+   *  Первый запуск (lastAnnouncedVersion пуст) ничего не анонсирует — только фиксирует версию:
+   *  установка плагина не является «обновлением», иначе каждый новый планшет спамил бы канал. */
   private async announceIfNeeded(): Promise<void> {
     if (this.settings.lastAnnouncedVersion === this.manifest.version) return;
     if (!this.auth.getStatus().authorized) return;
+    const firstRun = !this.settings.lastAnnouncedVersion;
     try {
-      await this.announceUpdate({
-        appId: this.manifest.id,
-        appName: this.manifest.name,
-        version: this.manifest.version,
-        summary: 'Обновлена мобильная версия центра управления плагинами: исправления и улучшения.',
-      });
+      if (!firstRun) {
+        await this.announceUpdate({
+          appId: this.manifest.id,
+          appName: this.manifest.name,
+          version: this.manifest.version,
+          summary: 'Обновлена мобильная версия центра управления плагинами: исправления и улучшения.',
+        });
+      }
       this.settings.lastAnnouncedVersion = this.manifest.version;
       await this.saveSettings();
     } catch (e: unknown) {
