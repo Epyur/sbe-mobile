@@ -1,11 +1,11 @@
 import { ItemView, Modal, Notice, WorkspaceLeaf } from 'obsidian';
-import { StoreManager } from '../../../sbe-core/src/store-manager';
-import { installPlugin, isPluginEnabled, readLocalManifest } from '../../../sbe-core/src/installer';
-import { getService, isOpenable } from '../../../sbe-core/src/bridge';
-import { errorMessage } from '../../../sbe-core/src/utils/errors';
-import type { AuthService } from '../../../sbe-core/src/auth-client';
-import type { InstalledPlugin, NewsItem, PluginCard } from '../../../sbe-core/src/types';
-import type { SbeServiceMap } from '../../../sbe-core/src/types';
+import { StoreManager } from '../../../../.obsidian/plugins/sbe-core/src/store-manager';
+import { installPlugin, isPluginEnabled, readLocalManifest } from '../../../../.obsidian/plugins/sbe-core/src/installer';
+import { getService, isOpenable } from '../../../../.obsidian/plugins/sbe-core/src/bridge';
+import { errorMessage } from '../../../../.obsidian/plugins/sbe-core/src/utils/errors';
+import type { AuthService } from '../../../../.obsidian/plugins/sbe-core/src/auth-client';
+import type { InstalledPlugin, NewsItem, PluginCard } from '../../../../.obsidian/plugins/sbe-core/src/types';
+import type { SbeServiceMap } from '../../../../.obsidian/plugins/sbe-core/src/types';
 import type SbeMobilePlugin from '../main';
 
 export const MOBILE_VIEW_TYPE = 'sbe-mobile-view';

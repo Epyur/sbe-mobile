@@ -2,18 +2,18 @@ import { Plugin, Notice } from 'obsidian';
 import { MOBILE_VIEW_TYPE, MobileView } from './ui/mobile-view';
 import { MobileSettingsTab } from './ui/settings-tab';
 import { MandatoryNewsModal } from './ui/news-modal';
-import { StoreManager } from '../../sbe-core/src/store-manager';
-import { AuthService } from '../../sbe-core/src/auth-client';
-import { getServiceSync, publishService, unpublishService } from '../../sbe-core/src/bridge';
-import { DEFAULT_REGISTRY_URL } from '../../sbe-core/src/registry';
-import { errorMessage } from '../../sbe-core/src/utils/errors';
+import { StoreManager } from '../../../.obsidian/plugins/sbe-core/src/store-manager';
+import { AuthService } from '../../../.obsidian/plugins/sbe-core/src/auth-client';
+import { getServiceSync, publishService, unpublishService } from '../../../.obsidian/plugins/sbe-core/src/bridge';
+import { DEFAULT_REGISTRY_URL } from '../../../.obsidian/plugins/sbe-core/src/registry';
+import { errorMessage } from '../../../.obsidian/plugins/sbe-core/src/utils/errors';
 import type {
   AnnounceUpdateInput,
   InstalledPlugin,
   PluginState,
   SbeApstoreApi,
   UpdateSummary,
-} from '../../sbe-core/src/types';
+} from '../../../.obsidian/plugins/sbe-core/src/types';
 
 /** Стабильный ID секрета: ключ доступа к серверу (тот же, что у десктопного ЦУП). */
 export const AUTH_KEY_SECRET = 'sbe-auth-key';

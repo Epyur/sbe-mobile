@@ -1,7 +1,7 @@
 import { App, Modal, Notice } from 'obsidian';
-import { errorMessage } from '../../../sbe-core/src/utils/errors';
-import type { AuthService } from '../../../sbe-core/src/auth-client';
-import type { NewsItem } from '../../../sbe-core/src/types';
+import { errorMessage } from '../../../../.obsidian/plugins/sbe-core/src/utils/errors';
+import type { AuthService } from '../../../../.obsidian/plugins/sbe-core/src/auth-client';
+import type { NewsItem } from '../../../../.obsidian/plugins/sbe-core/src/types';
 
 /** Модалка обязательного (mandatory) сообщения — открывается при старте Obsidian,
  *  пока первое непрочитанное обязательное сообщение не будет отмечено прочитанным. */

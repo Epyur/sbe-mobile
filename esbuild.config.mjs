@@ -5,8 +5,8 @@ import path from 'path';
 const prod = process.argv[2] === 'production';
 
 function buildStyles() {
-  const tokens = fs.readFileSync(path.resolve('../sbe-core/src/design/tokens.css'), 'utf8');
-  const components = fs.readFileSync(path.resolve('../sbe-core/src/design/components.css'), 'utf8');
+  const tokens = fs.readFileSync(path.resolve('../../.obsidian/plugins/sbe-core/src/design/tokens.css'), 'utf8');
+  const components = fs.readFileSync(path.resolve('../../.obsidian/plugins/sbe-core/src/design/components.css'), 'utf8');
   const own = fs.existsSync(path.resolve('src/styles.css'))
     ? fs.readFileSync(path.resolve('src/styles.css'), 'utf8')
     : '';

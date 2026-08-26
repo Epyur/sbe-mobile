@@ -11,6 +11,6 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["src/**/*.ts", "../sbe-core/src/**/*.ts"],
+  "include": ["src/**/*.ts", "../../.obsidian/plugins/sbe-core/src/**/*.ts"],
   "exclude": ["node_modules"]
 }
