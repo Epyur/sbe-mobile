@@ -44,6 +44,24 @@
 
 ## История работ
 
+### 2026-08-29 — v0.1.1 (фикс — sendFeedback отсутствовал в мосте auth; подхватил selfHosted из sbe-core)
+
+Живая находка при работе над инструментом ручной загрузки файлов плагина
+(`sbe-core/AGENTS.md`, `docs/superpowers/specs/2026-08-29-sbe-plugin-file-upload-design.md`):
+`buildApi()`'s `auth: {...}` не реализовывал `sendFeedback` (добавлен в `SbeAuthApi`
+ещё 2026-08-28, при работе над обратной связью ЦУП — сюда, в мобильный хаб, эта
+правка тогда не попала). `tsc --noEmit` это видел, но `npm run build` (esbuild, без
+проверки типов) собирался без ошибки — пробел не был заметен по факту сборки.
+Добавлен `sendFeedback: async (input) => { await this.auth.sendFeedback(input); }`
+— тот же паттерн, что у остальных методов моста.
+
+Заодно пересобран после общих правок `sbe-core` (`registry.ts`/`installer.ts` —
+`pluginFileUrl`/`selfHosted`, см. тот же спек) — `store-manager.ts`/`installer.ts`
+общие для десктопного ЦУП и этого хаба, отдельных правок в самом sbe-mobile для
+этого не требовалось.
+
+- `npx tsc --noEmit` EXIT=0, `npm run build` OK. Версия 0.1.0 → **0.1.1**.
+
 ### 2026-08-26 — v0.1.0 (создание)
 - Плагин создан по дизайну `docs/superpowers/specs/2026-08-26-sbe-mobile-design.md`.
 - Согласовано с пользователем: отдельный плагин-хаб; Android-планшеты; v1 =

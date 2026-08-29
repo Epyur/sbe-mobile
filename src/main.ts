@@ -311,6 +311,9 @@ export default class SbeMobilePlugin extends Plugin {
         removeRegistryAddition: async (registryId) => {
           await this.auth.removeRegistryAddition(registryId);
         },
+        sendFeedback: async (input) => {
+          await this.auth.sendFeedback(input);
+        },
       },
       announceUpdate: async (input: AnnounceUpdateInput) => {
         await this.auth.createNews({
