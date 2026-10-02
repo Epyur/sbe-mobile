@@ -241,7 +241,9 @@ export default class SbeMobilePlugin extends Plugin {
           appId: this.manifest.id,
           appName: this.manifest.name,
           version: this.manifest.version,
-          summary: 'Обновлена мобильная версия центра управления плагинами: исправления и улучшения.',
+          summary: 'Исправлена ошибка при обновлении плагинов: иногда из-за кэша бралось '
+            + 'файловое содержимое старой версии, и обновление прерывалось сообщением о '
+            + 'несовпадении контрольной суммы. Теперь этого не происходит.',
         });
       }
       this.settings.lastAnnouncedVersion = this.manifest.version;
